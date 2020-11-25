@@ -15,7 +15,7 @@ jobs:
       with:
         playbookName: 'simple-playbook.yml'
         inventoryFile: 'my-inventory.yml'
-        requirementsFile: ".ansible/requirements.yml"
+        # requirementsFile: ".ansible/requirements.yml"
         # galaxyGithubUser: ${{ secrets.GITHUB_USER }}
         # galaxyGithubToken: ${{ secrets.Github_PAT }}
         # rolesPath: ".ansible/playbooks/roles"
