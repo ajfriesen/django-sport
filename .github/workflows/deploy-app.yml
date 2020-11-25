@@ -12,6 +12,11 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
+    - run: 'echo "$SSH_KEY" > key'
+      shell: bash
+      env:
+        SSH_KEY: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+
     - name: Deploy
       uses: saubermacherag/ansible-playbook-docker-action@v1.4
       with:
@@ -21,7 +26,7 @@ jobs:
         # galaxyGithubUser: ${{ secrets.GITHUB_USER }}
         # galaxyGithubToken: ${{ secrets.Github_PAT }}
         # rolesPath: ".ansible/playbooks/roles"
-        keyFile: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+        keyFile: 'key'
         # keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
         # extraFile: ".ansible/extra.yml"
         # extraVars: "-e my_first_extra=${{ github.actor }} -e my_second_one=${{ github.sha }}"
