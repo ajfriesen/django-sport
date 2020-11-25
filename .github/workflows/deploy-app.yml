@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Deploy
-      uses: saubermacherag/ansible-playbook-docker-action@v1.3
+      uses: saubermacherag/ansible-playbook-docker-action@v1.4
       with:
         playbookName: 'simple-playbook.yml'
         inventoryFile: 'my-inventory.yml'
