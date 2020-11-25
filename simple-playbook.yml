@@ -2,5 +2,7 @@
 - hosts: all
   become: yes
   tasks:
-    - name: test
-      shell: echo "test"
+    - name: nginx
+      apt:
+        name: nginx
+        state: present
