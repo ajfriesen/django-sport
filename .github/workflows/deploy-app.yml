@@ -21,7 +21,7 @@ jobs:
         # galaxyGithubUser: ${{ secrets.GITHUB_USER }}
         # galaxyGithubToken: ${{ secrets.Github_PAT }}
         # rolesPath: ".ansible/playbooks/roles"
-        keyFile: ".ansible/random-ssh-key.pem"
+        keyFile: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
         # keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
         # extraFile: ".ansible/extra.yml"
         # extraVars: "-e my_first_extra=${{ github.actor }} -e my_second_one=${{ github.sha }}"
