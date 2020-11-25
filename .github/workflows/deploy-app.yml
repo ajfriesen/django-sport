@@ -1,4 +1,4 @@
-name: DEploy App
+name: Deploy App
 
 on:
   push:
@@ -10,15 +10,17 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
 
-    - name: Deploy to Docker swarm
-      uses: wshihadeh/docker-deployment-action@v2
+    - name: Deploy
+      uses: saubermacherag/ansible-playbook-docker-action@v1.3
       with:
-        remote_docker_host: deployer@docker.ajfriesen.com
-        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-        deployment_mode: docker-compose
-        copy_stack_file: true
-        deploy_path: /home/deployer/
-        stack_file_name: docker-compose.yaml
-        keep_files: 5
-        args: up -d
+        playbookName: 'simple-playbook.yml'
+        inventoryFile: 'my-inventory.yml'
+        requirementsFile: ".ansible/requirements.yml"
+        # galaxyGithubUser: ${{ secrets.GITHUB_USER }}
+        # galaxyGithubToken: ${{ secrets.Github_PAT }}
+        # rolesPath: ".ansible/playbooks/roles"
+        keyFile: ".ansible/random-ssh-key.pem"
+        # keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
+        # extraFile: ".ansible/extra.yml"
+        # extraVars: "-e my_first_extra=${{ github.actor }} -e my_second_one=${{ github.sha }}"
+        verbosity: "vv"
