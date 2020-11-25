@@ -9,6 +9,8 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
 
     - name: Deploy
       uses: saubermacherag/ansible-playbook-docker-action@v1.3
