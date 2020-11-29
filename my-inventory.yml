@@ -1,5 +1,0 @@
-[all]
-docker.ajfriesen.com ansible_user=deployer
-
-[all:vars]
-ansible_python_interpreter=/usr/bin/python3
