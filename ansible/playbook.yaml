@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+
+  roles:
+    - geerlingguy.docker
+
+  tasks:
+
+    - name: Generate a Self Signed OpenSSL certificate
+      community.crypto.x509_certificate:
+        path: /etc/ssl/crt/ansible.com.crt
+        privatekey_path: /etc/ssl/private/ansible.com.pem
+        csr_path: /etc/ssl/csr/ansible.com.csr
+        provider: selfsigned
