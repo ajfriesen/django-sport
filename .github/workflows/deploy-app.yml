@@ -20,8 +20,8 @@ jobs:
     - name: Deploy
       uses: saubermacherag/ansible-playbook-docker-action@v1.4
       with:
-        playbookName: 'ansible/playbook.yml'
-        inventoryFile: 'ansible/inventory.yml'
+        playbookName: 'ansible/playbook.yaml'
+        inventoryFile: 'ansible/inventory.yaml'
         # requirementsFile: ".ansible/requirements.yml"
         # galaxyGithubUser: ${{ secrets.GITHUB_USER }}
         # galaxyGithubToken: ${{ secrets.Github_PAT }}
